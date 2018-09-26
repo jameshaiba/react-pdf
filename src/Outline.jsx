@@ -34,7 +34,7 @@ export default class Outline extends Component {
   }
 
   getPdf(props = this.props, context = this.context) {
-    return props.pdf || context.pdf;
+    return context.pdf; // [JRITTS] fix stale page rendering
   }
 
   getChildContext() {
