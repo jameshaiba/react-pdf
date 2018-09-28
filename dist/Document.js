@@ -241,8 +241,6 @@ var Document = function (_Component) {
         }
 
         this.loadDocument(nextProps);
-      } else {
-        (0, _utils.callIfDefined)(this.props.onSourceUnchanged);
       }
     }
   }, {
@@ -299,7 +297,7 @@ var Document = function (_Component) {
          * performance. Therefore, we're making a compromise here, agreeing on not loading the next
          * file if its size is identical as the previous one's.
          */
-        return nextFile.size !== file.size;
+        return nextFile.version !== file.version || nextFile.size !== file.size;
       }
 
       return nextFile !== file;
