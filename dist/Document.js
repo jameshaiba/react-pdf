@@ -241,6 +241,8 @@ var Document = function (_Component) {
         }
 
         this.loadDocument(nextProps);
+      } else {
+        (0, _utils.callIfDefined)(this.props.onSourceUnchanged);
       }
     }
   }, {

@@ -70,6 +70,8 @@ export default class Document extends Component {
       }
 
       this.loadDocument(nextProps);
+    } else {
+      callIfDefined(this.props.onSourceUnchanged);
     }
   }
 
