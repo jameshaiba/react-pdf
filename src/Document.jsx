@@ -303,9 +303,11 @@ export default class Document extends Component {
 
   registerPage = (pageIndex, ref) => {
     this.pages[pageIndex] = ref;
+    callIfDefined(this.props.onRegisterPage, pageIndex);
   }
 
   unregisterPage = (pageIndex) => {
+    callIfDefined(this.props.onUnregisterPage, pageIndex);
     delete this.pages[pageIndex];
   }
 
@@ -381,6 +383,8 @@ Document.propTypes = {
   onLoadSuccess: PropTypes.func,
   onSourceError: PropTypes.func,
   onSourceSuccess: PropTypes.func,
+  onRegisterPage: PropTypes.func,
+  onUnregisterPage: PropTypes.func,
   rotate: PropTypes.number,
   ...eventsProps(),
 };

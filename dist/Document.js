@@ -220,7 +220,9 @@ var Document = function (_Component) {
       });
     }, _this.registerPage = function (pageIndex, ref) {
       _this.pages[pageIndex] = ref;
+      (0, _utils.callIfDefined)(_this.props.onRegisterPage, pageIndex);
     }, _this.unregisterPage = function (pageIndex) {
+      (0, _utils.callIfDefined)(_this.props.onUnregisterPage, pageIndex);
       delete _this.pages[pageIndex];
     }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
   }
@@ -441,5 +443,7 @@ Document.propTypes = (0, _extends3.default)({
   onLoadSuccess: _propTypes2.default.func,
   onSourceError: _propTypes2.default.func,
   onSourceSuccess: _propTypes2.default.func,
+  onRegisterPage: _propTypes2.default.func,
+  onUnregisterPage: _propTypes2.default.func,
   rotate: _propTypes2.default.number
 }, (0, _propTypes3.eventsProps)());
